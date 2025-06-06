@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PPDB Online 2025 – SMK Negeri Contoh</title>
+  <link rel="stylesheet" href="spmb.css"/>
+</head>
+<body>
+
+<header class="hero">
+  <img src="logo.png" alt="Logo" class="hero-logo"/>
+  <h1>PPDB Online SMK Negeri Contoh</h1>
+  <p>Tahun Ajaran 2025/2026</p>
+</header>
+
+<div class="wizard-container">
+  <ul class="wizard-steps">
+    <li class="active">1. Jalur</li>
+    <li>2. Data Pribadi</li>
+    <li>3. Berkas</li>
+    <li>4. Konfirmasi</li>
+  </ul>
+
+  <form id="wizardForm">
+    <!-- Step 1: Pilih Jalur -->
+    <fieldset class="step active">
+      <legend>Pilih Jalur Pendaftaran</legend>
+      <label><input type="radio" name="jalur" value="Domisili" required/> Domisili</label>
+      <label><input type="radio" name="jalur" value="Afirmasi"/> Afirmasi</label>
+      <label><input type="radio" name="jalur" value="Prestasi"/> Prestasi</label>
+      <label><input type="radio" name="jalur" value="Mutasi"/> Mutasi</label>
+      <button type="button" class="btn-next">Selanjutnya</button>
+    </fieldset>
+
+    <!-- Step 2: Data Pribadi -->
+    <fieldset class="step">
+      <legend>Data Pribadi</legend>
+      <input type="text" name="nama" placeholder="Nama Lengkap" required/>
+      <input type="text" name="nisn" placeholder="NISN" required/>
+      <input type="email" name="email" placeholder="Email" required/>
+      <input type="tel" name="noHp" placeholder="No HP" required/>
+      <button type="button" class="btn-prev">Sebelumnya</button>
+      <button type="button" class="btn-next">Selanjutnya</button>
+    </fieldset>
+
+    <!-- Step 3: Upload Berkas -->
+    <fieldset class="step">
+      <legend>Unggah Berkas</legend>
+      <input type="file" name="berkas" accept="application/pdf,image/*" required/>
+      <textarea name="catatan" placeholder="Catatan (opsional)"></textarea>
+      <button type="button" class="btn-prev">Sebelumnya</button>
+      <button type="button" class="btn-next">Selanjutnya</button>
+    </fieldset>
+
+    <!-- Step 4: Konfirmasi & Submit -->
+    <fieldset class="step">
+      <legend>Konfirmasi & Submit</legend>
+      <div id="summary"></div>
+      <button type="button" class="btn-prev">Sebelumnya</button>
+      <button type="submit">Kirim dan Cetak Bukti</button>
+    </fieldset>
+  </form>
+
+  <div id="confirmation" class="hidden">
+    <h2>Pendaftaran Berhasil!</h2>
+    <p>Kode Pendaftaran: <strong id="kode"></strong></p>
+    <button onclick="cetakPDF()">Cetak Bukti PDF</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="spmb.js"></script>
+</body>
+</html>
